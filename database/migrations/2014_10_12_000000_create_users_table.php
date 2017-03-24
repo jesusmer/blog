@@ -62,7 +62,7 @@ class CreateUsersTable extends Migration
 
     public function down()
     {
-        Schema::table('profaileuser');
+        Schema::table('profileuser');
     }
 
      public function up()
