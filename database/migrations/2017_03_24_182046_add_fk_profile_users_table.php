@@ -11,7 +11,7 @@ class AddFkProfileUsersTable extends Migration
      *
      * @return void
      */
-    public function up()
+     public function up()
     {
         //
         Schema::table('profile_users', function(Blueprint $table) {

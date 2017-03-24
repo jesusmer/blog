@@ -13,9 +13,13 @@ class CreatePostCommentsTable extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('post_comments', function(Blueprint $table) {
+            $table->unsignedInteger('post_id');
+            $table->unsignedInteger('user_id');
+            $table->text('body');
+            $table->timestamps();
+        });
     }
-
     /**
      * Reverse the migrations.
      *
@@ -23,6 +27,6 @@ class CreatePostCommentsTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('post_comments');
     }
 }

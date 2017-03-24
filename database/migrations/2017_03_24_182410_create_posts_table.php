@@ -13,9 +13,18 @@ class CreatePostsTable extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('posts', function(Blueprint $table) {
+            $table->increments('id');
+            $table->unsignedInteger('blog_id');
+            $table->string('title');
+            $table->datetime('publish_date');
+            $table->string('tags');
+            $table->string('permanent_link');
+            $table->string('location');
+            $table->text('body');
+            $table->timestamps();
+        });
     }
-
     /**
      * Reverse the migrations.
      *
@@ -23,6 +32,6 @@ class CreatePostsTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('posts');
     }
 }

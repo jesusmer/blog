@@ -11,11 +11,15 @@ class AddFkBlogsTable extends Migration
      *
      * @return void
      */
-    public function up()
+     public function up()
     {
-        //
+        Schema::table('blogs', function(Blueprint $table) {
+            $table->foreign('user_id')
+                ->references('id')->on('users')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
+        });
     }
-
     /**
      * Reverse the migrations.
      *
@@ -23,6 +27,8 @@ class AddFkBlogsTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::table('blogs', function(Blueprint $table) {
+            $table->dropForeign('blogs_user_id_foreign');
+        });
     }
 }
